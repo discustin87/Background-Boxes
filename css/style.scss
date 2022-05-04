@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+// $btnBackground: #f9ca24;
+// $bodyBackground: #fafafa;
+// $btnBoxShadow: 0 3px rgba($color: #f9ca24, $alpha: 0.5); 
+
+$darkBackground: #6b1b72;
+$btnBackground: #a622b2;
+$bodyBackground: #282827;
+$btnBoxShadow: 1px 2px 4px rgba($color: #f1f1ef, $alpha: 0.5);
+
+
+body {
+  background-color: $bodyBackground;
+  font-family: 'roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+.magic {
+  background-color: $btnBackground;
+  color: #fff;
+  font-family: 'Poppin',sans-serif;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 12px 20px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  letter-spacing: 1px;
+  box-shadow: $btnBoxShadow;
+  z-index: 100;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    // transform: scale(.95);
+    box-shadow: 4px 5px 4px rgba($color: #f1f1ef, $alpha: 0.5);
+  }
+
+  &:active {
+    // transform: scale(1.05);
+    // box-shadow: 4px 5px 4px rgba($color: #f1f1ef, $alpha: 0.5);
+
+    transform: scale(.98);
+    box-shadow: $btnBoxShadow;
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 50px;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  transition: .4s ease;
+
+  &.big {
+    height: 600px;
+    width: 600px;
+
+    .box {
+      transform: rotateZ(360deg);
+    }
+  }
+}
+
+.box {
+  background: url('https://media4.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif?cid=ecf05e478sgu1dwusxvlrv8drbe35zk5b3vc4tuktcz22t3i&rid=giphy.gif&ct=g');
+  background-repeat: no-repeat;
+  background-size: 500px 500px;
+  position: relative;
+  height: 125px;
+  width: 125px;
+  transition: .4s ease;
+
+  &::after {
+    content: '';
+    background-color: $btnBackground;
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    height: 100%;
+    width: 15px;
+    transform: skewY(45deg);
+  }
+
+  &::before {
+    content: '';
+    background-color: $darkBackground;
+    position: absolute;
+    bottom: -15px;
+    left: 8px;
+    height: 15px;
+    width: 100%;
+    transform: skewX(45deg);
+  }
+}
